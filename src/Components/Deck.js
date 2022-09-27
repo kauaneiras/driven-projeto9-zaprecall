@@ -1,5 +1,4 @@
-import react from "react";
-import {useState} from react;
+import {useState} from "react";
 
 export default function Deck(props) {
     const [usedCard, setUsedCard] = useState([]);
@@ -37,8 +36,30 @@ export default function Deck(props) {
 
     const choosedDeck = chooseDeck();
 
+    function randomCard() {
+
+     while (usedCard.length < choosedDeck.length) {
+        const random = Math.floor(Math.random() * choosedDeck.length);
+        const usedCardSet = [...usedCard];
+        if (!usedCardSet.includes(random)){
+            usedCardSet.push(random);
+            setUsedCard(usedCardSet);
+        }
+     }
+    }
+
+    const test = randomCard();
 
     return(
-        
+        <div className="deck">
+            {choosedDeck.map((card, index) => {
+                return(
+                    <div className="card" key={index}>
+                        <div className="question">{card.Q}</div>
+                        <div className="answer">{card.R}</div>
+                    </div>
+                )
+            })}
+        </div>
     )
 }
