@@ -15,10 +15,8 @@ export default function Start() {
 
     function handleCreate(e) {
         e.preventDefault()
-        alert(selectValue)  
+        alert("DECK: ",selectValue)  
       }
-    
-  
     
     return (
         <AlignCenter>
