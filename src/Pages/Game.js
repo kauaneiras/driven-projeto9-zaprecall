@@ -5,10 +5,12 @@ import styled from "styled-components";
 // ---------- Componentes Usados ---------- \\
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import SelectDeck from "../Components/SelectedDeck";
 
 
 export default function Game() {
     const {idDeck} = useParams();
+
 
     return (
         <AlignCenter>
