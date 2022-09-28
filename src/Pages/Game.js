@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 // ---------- Componentes Usados ---------- \\
 import Header from "../Components/Header";
+import Footer from "../Components/Footer";
 
 
 export default function Game() {
@@ -13,6 +14,7 @@ export default function Game() {
         <AlignCenter>
             <Header/>
             <h1>{idDeck}</h1>
+            <Footer/>
         </AlignCenter>
     )
 }
