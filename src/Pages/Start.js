@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { Link } from "react-router-dom";
 import styled from 'styled-components';
 import logo from '../assets/img/logo.png';
-
+import Game from './Game';
 
 
 export default function Start() {
@@ -13,11 +14,9 @@ export default function Start() {
       {id: 3, name: 'Bleach'},
     ];
 
-    function handleCreate(e) {
-        e.preventDefault()
-        alert("DECK: ",selectValue)  
-      }
-    
+    const idDeck = selectValue;
+
+
     return (
         <AlignCenter>
             <ImageSize src={logo} />
@@ -27,7 +26,7 @@ export default function Start() {
                     <option value={item.id} key={index}>{item.name}</option>
                 ))}
             </SelectDeck>
-            <StartButton onClick={handleCreate}>Iniciar Recall!</StartButton>
+            <StartButton><Link to = {`/game/${idDeck}`}>Iniciar Recall</Link></StartButton>
         </AlignCenter>
     )
 }
@@ -74,4 +73,5 @@ const StartButton = styled.button`
     font-family: 'Recursive', sans-serif;
     font-size: 18px;
     font-weight: 400;
+    text-decoration: none;
 `
