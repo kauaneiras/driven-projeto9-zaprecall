@@ -26,7 +26,7 @@ export default function Start() {
                     <option value={item.id} key={index}>{item.name}</option>
                 ))}
             </SelectDeck>
-            <StartButton><Link to = {`/game/${idDeck}`}>Iniciar Recall</Link></StartButton>
+            <StartButton>{selectValue === 1 ? (<Link to = {`/`} style={{textDecoration:"none"}}>Iniciar Recall</Link>) : (<Link to = {`/game/${idDeck}`}>Iniciar Recall</Link>)}</StartButton>
         </AlignCenter>
     )
 }

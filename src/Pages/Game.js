@@ -15,7 +15,7 @@ export default function Game() {
     return (
         <AlignCenter>
             <Header/>
-            <h1>{idDeck}</h1>
+            <SelectDeck idDeck={idDeck}/>
             <Footer/>
         </AlignCenter>
     )
