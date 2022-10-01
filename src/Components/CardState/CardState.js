@@ -10,10 +10,30 @@ console.log("CHEGOU NO CARDSTATE");
 
 export default function CardState(props) {
     const [cardstate, setCardState] = useState("closed");
-   
-    console.log("STATE" + cardstate);
+    const [color, setColor] = useState("black");
+    const [score, setScore] = useState(0);
 
-    if(cardstate === "closed"){return <Closed state={setCardState} number={props.number}/>}
-    else if(cardstate === "openedfront"){return <OpenedFront state={setCardState} card={props.card}/>}
-    else if(cardstate === "openedback"){return <OpenedBack card={props.card}/>}
+    const setButton = (button) => {
+        if (button == 1) {
+            setColor("red");
+            setScore(score + 0);
+            setCardState("closed");
+        } else if (button == 2) {
+            setColor("yellow");
+            setScore(score + 1);
+            setCardState("closed");
+
+        } else if (button == 3) {
+            setColor("green");
+            setScore(score + 1);
+            setCardState("closed");
+        }
+    }
+
+
+
+    
+    if (cardstate === "closed") { return <Closed state={setCardState} number={props.number} setbutton={setButton} Color={color}/> }
+    else if (cardstate === "openedfront") { return <OpenedFront state={setCardState} card={props.card} setbutton={setButton} /> }
+    else if (cardstate === "openedback") { return <OpenedBack state={setCardState} card={props.card} setbutton={setButton} /> }
 }

@@ -1,9 +1,13 @@
 import styled from "styled-components"
 
 export default function Closed(props) {
+   console.log("AQUIIII A COR: " + props.Color) 
+    
     return (
         <Card>
-            <CardAnswer>Pegunta {props.number}</CardAnswer>
+            <CardAnswer 
+            style={props.Color == "black" ? { textDecoration:'none'} : {textDecoration:'line-through', color: `${props.Color}`}}
+            >Pegunta {props.number}</CardAnswer>
             <ion-icon name="play-outline" onClick={(() => props.state("openedfront"))}></ion-icon>
         </Card>
     )
@@ -35,6 +39,5 @@ const CardAnswer = styled.h1`
     font-weight: 700;
     font-size: 16px;
     line-height: 19px;
-    color: #333333;
     margin-right: 160px;
 `

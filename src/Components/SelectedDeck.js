@@ -7,8 +7,12 @@ import CardState from "./CardState/CardState";
 
 export default function SelectDeck(props) {
     const propsreceived = props.idDeck;
+    const [color, setColor] = useState("black");
+    const [button, setButton] = useState(0);
     console.log("ID RECEBIDO: " + propsreceived);
-    const [deck, setDeck] = useState();
+
+    console.log("COLOR: " + color);
+    console.log("BUTTON: " + button);
 
 
     const DeckBleach = [
@@ -41,14 +45,14 @@ const SelectDeck = () =>{
         console.log("CHEGOU NO DECKBLEACH");
         let suffle = (DeckRecall.sort(() => Math.random() - 0.5)).slice(4);
         console.log ("SUFFLE: " + suffle);
-        return (suffle.map((card, index) => <>{<CardState card = {card} number={index+1}/> }</>));
+        return (suffle.map((card, index) => <>{<CardState card = {card} number={index+1} setnum = {setButton} setcolor = {setColor}/> }</>));
         
 
     } else if (propsreceived == 3) {
         console.log("CHEGOU NO DECKBLEACH");
         let suffle = (DeckBleach.sort(() => Math.random() - 0.5)).slice(4);
         console.log ("SUFFLE: " + suffle);
-        return (suffle.map((card, index) => <>{<CardState card = {card} number={index+1}/> }</>));
+        return (suffle.map((card, index) => <>{<CardState card = {card} number={index+1} setnum = {setButton} setcolor = {setColor}/> }</>));
     }
 }
 

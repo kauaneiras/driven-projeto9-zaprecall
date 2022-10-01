@@ -1,13 +1,15 @@
 import styled from "styled-components"
 
 export default function OpenedBack(props) {
+        
+
     return (
         <Card>
             <Answer><h1>{props.card.R}</h1></Answer>
             <AlignButtons>
-                <NAOLEMBREI><h1>Não Lembrei</h1></NAOLEMBREI>
-                <QUASENAOLEMBREI><h1>Quase não lembrei</h1></QUASENAOLEMBREI>
-                <ZAP><h1>Zap!</h1></ZAP>
+                <NAOLEMBREI onClick={()=> props.setbutton(1)}><h1>Não Lembrei</h1></NAOLEMBREI>
+                <QUASENAOLEMBREI onClick={()=> props.setbutton(2)}><h1>Quase não lembrei</h1></QUASENAOLEMBREI>
+                <ZAP onClick={()=> props.setbutton(3)}><h1>Zap!</h1></ZAP>
             </AlignButtons>
 
         </Card>
