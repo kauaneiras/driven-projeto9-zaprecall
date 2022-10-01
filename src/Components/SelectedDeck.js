@@ -2,44 +2,59 @@ import { useState } from "react";
 import styled from "styled-components";
 
 //-------------- IMPORT DECKS --------------------\\
-import DeckRecall from "./Decks/DeckRecall";
-import DeckBleach from "./Decks/DeckBleach";
-import Closed from "./CardState/Closed";
-import OpenedFront from "./CardState/OpenedFront";
-import OpenedBack from "./CardState/OpenedBack";
+import CardState from "./CardState/CardState";
 //--------------------------------------------------\\
 
-export default function SelectDeck() {
-    const [cardstate, setCardState] = useState("closed");
-    const [cards, setCards] = useState([]);
-
-    // const propsobject = props.idDeck;
-
-    // function SelectDeckWithProps(){
-    //     if(propsobject === 2){
-    //         return "DeckRecall";
-    //     }else if(propsobject === 3){
-    //         return "DeckBleach";
-    //     }
-    // }
+export default function SelectDeck(props) {
+    const propsreceived = props.idDeck;
+    console.log("ID RECEBIDO: " + propsreceived);
+    const [deck, setDeck] = useState();
 
 
+    const DeckBleach = [
+        { Q: "Como Ichigo virou um shinigame?", R: "Uma Shinigame transferiu seus poderes para Ichigo" },
+        { Q: "Quem são os Arrancar?", R: "São Hallows poderosos que removeram suas máscaras" },
+        { Q: "Quem é o Arrancar mais forte de Bleach?", R: "Ulquiorra" },
+        { Q: "Qual é a Bankai de Kenpachi Zaraki no anime?", R: "Zaraki não descobriu sua bankai no anime" },
+        { Q: "Quem é o(a) tenente de Kenpachi Zaraki?", R: "Ikkaku Madarame" },
+        { Q: "No anime, Rukia é tenente de qual capitão?", R: "Jūshirō Ukitake" },
+        { Q: "Quem é o gato estranho amigo de Urahara Kisuke?", R: "É a Yoruichi Shihōin, ex-capitã do 2º Esquadrão" },
+        { Q: "Porque Urahara foi expulso da Soul Society", R: "Urahara criou o Hougyouku, e Aizen utilizou para criar Vaizards" }
+    ];
     
-    // console.log(choosecardsfromdeck)
+    const DeckRecall = [
+        { Q: "O que é JSX?", R: "Uma extensão de linguagem do JavaScript" },
+        { Q: "O React é __ ", R: "uma biblioteca JavaScript para construção de interfaces" },
+        { Q: "Componentes devem iniciar com __", R: "letra maiúscula" },
+        { Q: "Podemos colocar __ dentro do JSX", R: "expressões" },
+        { Q: "O ReactDOM nos ajuda __", R: "interagindo com a DOM para colocar componentes React na mesma" },
+        { Q: "Usamos o npm para __", R: "gerenciar os pacotes necessários e suas dependências" },
+        { Q: "Usamos props para __", R: "passar diferentes informações para componentes" },
+        { Q: "Usamos estado (state) para __", R: "dizer para o React quais informações quando atualizadas devem renderizar a tela novamente" }
+    ];
+    
+    
+const SelectDeck = () =>{
+    console.log("CHEGOU NA SELEÇÃO DE DECK");
+    
+    if (propsreceived == 2) { 
+        console.log("CHEGOU NO DECKBLEACH");
+        let suffle = (DeckRecall.sort(() => Math.random() - 0.5)).slice(4);
+        console.log ("SUFFLE: " + suffle);
+        return (suffle.map((card, index) => <>{<CardState card = {card} number={index+1}/> }</>));
+        
 
-
-
-    function CardState() {
-        if(cardstate === "closed"){return <Closed state={setCardState}/>}
-        else if(cardstate === "openedfront"){return <OpenedFront state={setCardState}/>}
-        else if(cardstate === "openedback"){<OpenedBack/>}
+    } else if (propsreceived == 3) {
+        console.log("CHEGOU NO DECKBLEACH");
+        let suffle = (DeckBleach.sort(() => Math.random() - 0.5)).slice(4);
+        console.log ("SUFFLE: " + suffle);
+        return (suffle.map((card, index) => <>{<CardState card = {card} number={index+1}/> }</>));
     }
-
-    
+}
 
     return(
         <AlignCenter>
-            {CardState()}
+            {SelectDeck()}
         </AlignCenter>
     )
 }
@@ -53,8 +68,4 @@ const AlignCenter = styled.div`
     height: 100vh;
 `
 
-const Card = styled.div`
-    width: 75%;
-    max-width: 50px;
-`
 

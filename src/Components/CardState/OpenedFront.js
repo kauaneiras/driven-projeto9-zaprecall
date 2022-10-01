@@ -4,7 +4,7 @@ import styled from "styled-components"
 export default function OpenedFront(props) {
     return (
         <Card>
-            <h1>{props.Q}</h1>
+            <h1>{props.card.Q}</h1>
             <ion-icon name="reload-outline" onClick={(() => props.state("openedback"))}></ion-icon>
         </Card>
     )
@@ -12,7 +12,6 @@ export default function OpenedFront(props) {
 
 
 const Card = styled.div`
-    position: absolute;
     width: 300px;
     height: 131px;
     background-color: #FFFFD5;

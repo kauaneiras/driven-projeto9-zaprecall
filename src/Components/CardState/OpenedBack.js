@@ -3,13 +3,12 @@ import styled from "styled-components"
 export default function OpenedBack(props) {
     return (
         <Card>
-            <h1>{props.A}</h1>
+            <h1>{props.card.R}</h1>
         </Card>
     )
 }
 
 const Card = styled.div`
-    position: absolute;
     width: 300px;
     height: 131px;
     background-color: #FFFFD5;

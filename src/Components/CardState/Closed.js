@@ -11,7 +11,6 @@ export default function Closed(props) {
 
 
 const Card = styled.div`
-    position: absolute;
     display: flex;
     flex-direction: row;
     justify-content: center;
