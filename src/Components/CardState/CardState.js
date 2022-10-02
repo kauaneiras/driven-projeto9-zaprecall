@@ -7,34 +7,26 @@ import OpenedFront from "./OpenedFront";
 import OpenedBack from "./OpenedBack";
 // ------------------------------------- \\
 
-
-
-
-
 export default function CardState(props) {
     const [cardstate, setCardState] = useState("closed");
     const [color, setColor] = useState("black");
-    const [score, setScore] = useState(0);
 
     const setButton = (button) => {
         if (button == 1) {
             setColor("red");
-            setScore(score + 0);
+            props.sumScore("red");
             setCardState("closed");
         } else if (button == 2) {
             setColor("orange");
-            setScore(score + 1);
+            props.sumScore("orange");
             setCardState("closed");
 
         } else if (button == 3) {
             setColor("green");
-            setScore(score + 1);
+            props.sumScore("green");
             setCardState("closed");
         }
     }
-    
-
-    console.log("SCORE: "+score);
     
     
     if (cardstate === "closed") { return <Closed state={setCardState} number={props.number} setbutton={setButton} Color={color}/> }

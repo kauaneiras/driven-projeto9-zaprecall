@@ -7,14 +7,13 @@ import CardState from "./CardState/CardState";
 
 export default function SelectDeck(props) {
     const propsreceived = props.idDeck;
-    const [color, setColor] = useState("black");
-    const [button, setButton] = useState(0);
-    console.log("ID RECEBIDO: " + propsreceived);
+    const [score, setScore] = useState([]);
+    const sumScore = (sumscore) => {
+        setScore([...score, sumscore]);    
+    }
+    props.setScore(score);
 
-    console.log("COLOR: " + color);
-    console.log("BUTTON: " + button);
-
-
+       
     const DeckBleach = [
         { Q: "Como Ichigo virou um shinigame?", R: "Uma Shinigame transferiu seus poderes para Ichigo" },
         { Q: "Quem são os Arrancar?", R: "São Hallows poderosos que removeram suas máscaras" },
@@ -39,20 +38,14 @@ export default function SelectDeck(props) {
     
     
 const SelectDeck = () =>{
-    console.log("CHEGOU NA SELEÇÃO DE DECK");
     
     if (propsreceived == 2) { 
-        console.log("CHEGOU NO DECKBLEACH");
         let suffle = (DeckRecall.sort(() => Math.random() - 0.5)).slice(4);
-        console.log ("SUFFLE: " + suffle);
-        return (suffle.map((card, index) => <>{<CardState card = {card} number={index+1} setnum = {setButton} setcolor = {setColor}/> }</>));
-        
+        return (suffle.map((card, index) => <>{<CardState card = {card} number={index+1} sumScore = {sumScore}/> }</>));
 
     } else if (propsreceived == 3) {
-        console.log("CHEGOU NO DECKBLEACH");
         let suffle = (DeckBleach.sort(() => Math.random() - 0.5)).slice(4);
-        console.log ("SUFFLE: " + suffle);
-        return (suffle.map((card, index) => <>{<CardState card = {card} number={index+1} setnum = {setButton} setcolor = {setColor}/> }</>));
+        return (suffle.map((card, index) => <>{<CardState card = {card} number={index+1} sumScore = {sumScore}/> }</>));
     }
 }
 

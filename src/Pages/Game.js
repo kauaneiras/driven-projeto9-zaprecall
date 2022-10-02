@@ -1,4 +1,5 @@
 // ------------ Módulos Usados ------------ \\
+import React, { useState} from 'react';
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
@@ -10,13 +11,18 @@ import SelectDeck from "../Components/SelectedDeck";
 
 export default function Game() {
     const {idDeck} = useParams();
+    const [score, setScore] = useState([]);
+
+    console.log("SCORE AFTER PROPS: "+score)
+
+
 
 
     return (
         <AlignCenter>
             <Header/>
-            <SelectDeck idDeck={idDeck}/>
-            <Footer/>
+            <SelectDeck idDeck={idDeck} setScore = {setScore}/>
+            <Footer score={score}/>
         </AlignCenter>
     )
 }
