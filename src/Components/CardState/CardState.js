@@ -1,11 +1,14 @@
 import { useState } from "react";
 
 
+// -------- IMPORT CARDS STATES -------- \\
 import Closed from "./Closed"
 import OpenedFront from "./OpenedFront";
 import OpenedBack from "./OpenedBack";
+// ------------------------------------- \\
 
-console.log("CHEGOU NO CARDSTATE");
+
+
 
 
 export default function CardState(props) {
@@ -19,7 +22,7 @@ export default function CardState(props) {
             setScore(score + 0);
             setCardState("closed");
         } else if (button == 2) {
-            setColor("yellow");
+            setColor("orange");
             setScore(score + 1);
             setCardState("closed");
 
@@ -29,7 +32,10 @@ export default function CardState(props) {
             setCardState("closed");
         }
     }
+    
 
+    console.log("SCORE: "+score);
+    
     
     if (cardstate === "closed") { return <Closed state={setCardState} number={props.number} setbutton={setButton} Color={color}/> }
     else if (cardstate === "openedfront") { return <OpenedFront state={setCardState} card={props.card} setbutton={setButton} /> }

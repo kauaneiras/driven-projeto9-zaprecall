@@ -1,13 +1,25 @@
 import styled from "styled-components"
 
 export default function Closed(props) {
+
+    const icon = () => {
+        if (props.Color == "black") {
+            return "play-outline";
+        } else if (props.Color == "red") {
+            return "close-circle";
+        } else if (props.Color == "orange") {
+            return "help-circle";
+        } else if (props.Color == "green") {
+            return "checkmark-circle";
+        }
+    }
     
     return (
         <Card>
             <CardAnswer 
             style={props.Color == "black" ? { textDecoration:'none'} : {textDecoration:'line-through', color: `${props.Color}`}}
             >Pegunta {props.number}</CardAnswer>
-            <ion-icon color = {props.Color} name="play-outline" onClick={(() => props.Color == "black" ? props.state("openedfront"): null)} style={props.Color == "black" ? {cursor: 'pointer'} : {cursor: 'default'}}></ion-icon>
+            <ion-icon name={icon()} onClick={(() => props.Color == "black" ? props.state("openedfront"): null)} style={props.Color == "black" ? {cursor: 'pointer', color: 'black'} : {cursor: 'default', color: `${props.Color}`}}></ion-icon>
         </Card>
     )
 }

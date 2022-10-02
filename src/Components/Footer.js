@@ -15,7 +15,6 @@ const AlignFooter = styled.div`
     width: 100%;
     height: 50px;
     background-color: #FFFFFF;
-    margin-bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
