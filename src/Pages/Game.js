@@ -13,11 +13,6 @@ export default function Game() {
     const {idDeck} = useParams();
     const [score, setScore] = useState([]);
 
-    console.log("SCORE AFTER PROPS: "+score)
-
-
-
-
     return (
         <AlignCenter>
             <Header/>

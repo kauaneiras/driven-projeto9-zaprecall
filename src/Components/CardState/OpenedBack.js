@@ -36,11 +36,12 @@ const Answer = styled.div`
     align-items: center;
     width: 90%;
     height: 60%;
+    margin-top: 5px;
     & h1{
-        font-size: 16px;
+        font-size: 14px;
         font-family: 'Recursive', sans-serif;
         font-weight: 400;
-        line-height: 22px;
+        line-height: 20px;
 
 `
 const AlignButtons = styled.div`

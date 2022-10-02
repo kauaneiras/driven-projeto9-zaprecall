@@ -12,7 +12,7 @@ export default function Header(){
 
 const AlignTopItens = styled.div`
     top: 0;
-    margin-top: 20px;
+    margin-top: 80px;
     display: flex;
     justify-content: center;
     align-items: center;

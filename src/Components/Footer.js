@@ -4,6 +4,13 @@ import styled from "styled-components"
 export default function Footer(props) {
        
     const itemscore = props.score;
+    const heightFooter = () => {
+        if (itemscore.length == 0) {
+            return "70px"
+        } else {
+            return "126px"
+        }
+    }
     
     const score = () => {
         let scorevalue = 0;
@@ -19,7 +26,6 @@ export default function Footer(props) {
         return scorevalue;
     }
         
-
     const icon = (i) => {
         if (i == "red") {
             return "close-circle";
@@ -41,8 +47,8 @@ export default function Footer(props) {
     }
 
     return (
-        <AlignFooter>
-            <h1 data-identifier="flashcard-counter">{score()}/4 Concluidos</h1>
+        <AlignFooter heightFooter={heightFooter}>
+            <FooterCounter data-identifier="flashcard-counter">{score()}/4 Concluidos</FooterCounter>
             <AlignIcons> 
             {itemscore.map((item, index) => {
                 return (
@@ -59,7 +65,7 @@ const AlignFooter = styled.div`
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 50px;
+    height: ${props => props.heightFooter};
     background-color: #FFFFFF;
     display: flex;
     justify-content: center;
@@ -69,11 +75,21 @@ const AlignFooter = styled.div`
 
 const AlignIcons = styled.div`
     display: flex;
+    margin-top: 5px;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     ion-icon {
-        width: 20px;
-        height: 20px;
+        width: 25px;
+        height: 25px;
     }
+`
+
+const FooterCounter = styled.h1`
+    font-family: 'Recursive', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
 `

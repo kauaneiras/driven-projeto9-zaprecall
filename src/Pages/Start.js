@@ -26,7 +26,7 @@ export default function Start() {
                     <option data-identifier="deck-option" value={item.id} key={index}>{item.name}</option>
                 ))}
             </SelectDeck>
-            <StartButton>{selectValue === 1 ? (<Link data-identifier="start-btn" to = {`/game/2`} style={{textDecoration:"none"}}>Iniciar Recall</Link>) : (<Link to = {`/game/${idDeck}`} data-identifier="start-btn">Iniciar Recall</Link>)}</StartButton>
+            <StartButton>{selectValue === 1 ? (<Link data-identifier="start-btn" to = {`/game/2`} style={{textDecoration:"none", color:"#D70900", cursor:"pointer"}}>Iniciar Recall</Link>) : (<Link to = {`/game/${idDeck}`} data-identifier="start-btn" style={{textDecoration:"none", color:"#D70900", cursor:"pointer"}}>Iniciar Recall</Link>)}</StartButton>
         </AlignCenter>
     )
 }
@@ -74,4 +74,8 @@ const StartButton = styled.button`
     font-size: 18px;
     font-weight: 400;
     text-decoration: none;
+    cursor: pointer;
+    &:hover {
+        cursor: pointer;
+    }
 `
