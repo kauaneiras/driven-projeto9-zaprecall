@@ -20,7 +20,7 @@ export default function Footer(props) {
             } else if (s == "orange") {
                 scorevalue += 1;
             } else if (s == "red") {
-                scorevalue += 0;
+                scorevalue += 1;
             }
         });
         return scorevalue;
