@@ -30,10 +30,8 @@ export default function CardState(props) {
         }
     }
 
-
-
     
     if (cardstate === "closed") { return <Closed state={setCardState} number={props.number} setbutton={setButton} Color={color}/> }
     else if (cardstate === "openedfront") { return <OpenedFront state={setCardState} card={props.card} setbutton={setButton} /> }
-    else if (cardstate === "openedback") { return <OpenedBack state={setCardState} card={props.card} setbutton={setButton} /> }
+    else if (cardstate === "openedback") { return <OpenedBack state={setCardState} card={props.card} setbutton={setButton} Color={color}/> }
 }
