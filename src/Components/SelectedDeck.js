@@ -41,11 +41,11 @@ const SelectDeck = () =>{
     
     if (propsreceived == 2) { 
         let suffle = (DeckRecall.sort(() => Math.random() - 0.5)).slice(4);
-        return (suffle.map((card, index) => <>{<CardState card = {card} number={index+1} sumScore = {sumScore}/> }</>));
+        return (suffle.map((card, index) => <>{<CardState data-identifier="flashcard" card = {card} number={index+1} sumScore = {sumScore}/> }</>));
 
     } else if (propsreceived == 3) {
         let suffle = (DeckBleach.sort(() => Math.random() - 0.5)).slice(4);
-        return (suffle.map((card, index) => <>{<CardState card = {card} number={index+1} sumScore = {sumScore}/> }</>));
+        return (suffle.map((card, index) => <>{<CardState data-identifier="flashcard" card = {card} number={index+1} sumScore = {sumScore}/> }</>));
     }
 }
 

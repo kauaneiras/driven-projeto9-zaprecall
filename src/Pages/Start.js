@@ -10,7 +10,7 @@ export default function Start() {
     const [selectValue, setSelectValue] = useState(1);  
     const list = [
       {id: 1, name: 'Escola um deck'},
-      {id: 2, name: 'DeckZapRecall'},
+      {id: 2, name: 'ZapRecall'},
       {id: 3, name: 'Bleach'},
     ];
 
@@ -21,12 +21,12 @@ export default function Start() {
         <AlignCenter>
             <ImageSize src={logo} />
             <Title>ZapRecall</Title>
-            <SelectDeck value={selectValue} onChange={e => setSelectValue(e.target.value)}>
+            <SelectDeck data-identifier="deck-selector" value={selectValue} onChange={e => setSelectValue(e.target.value)}>
                 {list.map((item, index) => (
-                    <option value={item.id} key={index}>{item.name}</option>
+                    <option data-identifier="deck-option" value={item.id} key={index}>{item.name}</option>
                 ))}
             </SelectDeck>
-            <StartButton>{selectValue === 1 ? (<Link to = {`/`} style={{textDecoration:"none"}}>Iniciar Recall</Link>) : (<Link to = {`/game/${idDeck}`}>Iniciar Recall</Link>)}</StartButton>
+            <StartButton>{selectValue === 1 ? (<Link data-identifier="start-btn" to = {`/game/2`} style={{textDecoration:"none"}}>Iniciar Recall</Link>) : (<Link to = {`/game/${idDeck}`} data-identifier="start-btn">Iniciar Recall</Link>)}</StartButton>
         </AlignCenter>
     )
 }

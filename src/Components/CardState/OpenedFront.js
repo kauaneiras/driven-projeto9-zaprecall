@@ -5,10 +5,9 @@ import setinha from "../../assets/img/setinha.png"
 export default function OpenedFront(props) {
     return (
         <Card>
-            <Question><h1>{props.card.Q}</h1></Question>
-            
+            <Question><h1 data-identifier="flashcard-question">{props.card.Q}</h1></Question>
             <RotateCard>
-                <img src={setinha} alt="setinha" onClick={() => props.state("openedback")}/>
+                <img src={setinha} data-identifier="flashcard-turn-btn" alt="setinha" onClick={() => props.state("openedback")}/>
                 {/* <ion-icon name="reload-outline" onClick={(() => props.state("openedback"))}></ion-icon> */}
             </RotateCard>
         </Card>

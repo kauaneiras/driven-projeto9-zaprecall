@@ -13,13 +13,15 @@ export default function Closed(props) {
             return "checkmark-circle";
         }
     }
+
     
     return (
         <Card>
-            <CardAnswer 
+            <CardAnswer data-identifier="flashcard-index-item"
             style={props.Color == "black" ? { textDecoration:'none'} : {textDecoration:'line-through', color: `${props.Color}`}}
             >Pegunta {props.number}</CardAnswer>
-            <ion-icon name={icon()} onClick={(() => props.Color == "black" ? props.state("openedfront"): null)} style={props.Color == "black" ? {cursor: 'pointer', color: 'black'} : {cursor: 'default', color: `${props.Color}`}}></ion-icon>
+            <ion-icon name={icon()}  data-identifier={(()=>props.Color == "black"? "flashcard-show-btn" : "flashcard-status")} onClick={(() => props.Color == "black" ? props.state("openedfront"): null)} style={props.Color == "black" ? {cursor: 'pointer', color: 'black'} : {cursor: 'default', color: `${props.Color}`}}></ion-icon>
+            
         </Card>
     )
 }

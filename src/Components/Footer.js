@@ -2,20 +2,24 @@ import { useState } from "react";
 import styled from "styled-components"
 
 export default function Footer(props) {
-    const [size, setSize] = useState(0);
-    const [newscore, setNewScore] = useState([]);
-    const [numScore, setNumScore] = useState(0);
-
-    
+       
     const itemscore = props.score;
-    const sizeScore = itemscore.length;
+    
+    const score = () => {
+        let scorevalue = 0;
+        itemscore.forEach( s => {  
+            if (s == "green") {
+                scorevalue += 1;
+            } else if (s == "orange") {
+                scorevalue += 1;
+            } else if (s == "red") {
+                scorevalue += 0;
+            }
+        });
+        return scorevalue;
+    }
+        
 
-
-
-    console.log("SCORE AFTER PROPS: "+itemscore)
-    console.log("SIZE AFTER PROPS: "+sizeScore)
-
-  
     const icon = (i) => {
         if (i == "red") {
             return "close-circle";
@@ -38,12 +42,11 @@ export default function Footer(props) {
 
     return (
         <AlignFooter>
-            <h1>{numScore}/4 Concluidos</h1>
+            <h1 data-identifier="flashcard-counter">{score()}/4 Concluidos</h1>
             <AlignIcons> 
             {itemscore.map((item, index) => {
-                console.log("ITEMMMM: "+ item)
                 return (
-                    <ion-icon name={icon(item)} style={{color:`${iconColor(item)}`}}></ion-icon>
+                    <ion-icon name={icon(item)} style={{color:`${iconColor(item)}`}} key={index}></ion-icon>
                 )
             }
             )}

@@ -5,11 +5,11 @@ export default function OpenedBack(props) {
 
     return (
         <Card>
-            <Answer><h1>{props.card.R}</h1></Answer>
+            <Answer><h1 data-identifier="flashcard-answer">{props.card.R}</h1></Answer>
             <AlignButtons>
-                <NAOLEMBREI onClick={()=> props.setbutton(1)} disabled={props.Color != "black" ? true : false}><h1>Não Lembrei</h1></NAOLEMBREI>
-                <QUASENAOLEMBREI onClick={()=> props.setbutton(2)} disabled={props.Color != "black" ? true : false}><h1>Quase não lembrei</h1></QUASENAOLEMBREI>
-                <ZAP onClick={()=> props.setbutton(3)} disabled={props.Color != "black" ? true : false}><h1>Zap!</h1></ZAP>
+                <NAOLEMBREI data-identifier="forgot-btn" onClick={()=> props.setbutton(1)} disabled={props.Color != "black" ? true : false}><h1>Não Lembrei</h1></NAOLEMBREI>
+                <QUASENAOLEMBREI data-identifier="almost-forgot-btn" onClick={()=> props.setbutton(2)} disabled={props.Color != "black" ? true : false}><h1>Quase não lembrei</h1></QUASENAOLEMBREI>
+                <ZAP data-identifier="zap-btn" onClick={()=> props.setbutton(3)} disabled={props.Color != "black" ? true : false}><h1>Zap!</h1></ZAP>
             </AlignButtons>
 
         </Card>
